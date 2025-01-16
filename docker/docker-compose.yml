@@ -5,7 +5,8 @@ services:
     build:
       context: .  # Dockerfile所在目录
       dockerfile: Dockerfile
-    container_name: open3dqsar_test
+      image: hotwa/open3dqsar:latest 
+    container_name: open3dqsar_container
     stdin_open: true  # 保持标准输入打开
     tty: true  # 启用伪终端
     command: tail -f /dev/null  # 启动时保持容器运行
