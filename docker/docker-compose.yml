@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  open3dqsar:
+    build:
+      context: .  # Dockerfile所在目录
+      dockerfile: Dockerfile
+    container_name: open3dqsar_test
+    stdin_open: true  # 保持标准输入打开
+    tty: true  # 启用伪终端
+    command: tail -f /dev/null  # 启动时保持容器运行
+    environment:
+      O3_BABEL_PATH: "/usr/bin"
+      O3_GNUPLOT: "/usr/bin/gnuplot"
+      O3_PYMOL: "/usr/bin/pymol"
+      O3_TEMP: "/tmp"
+      O3_QM_ENGINE: "/path/to/orca"  # 如果将来使用 ORCA，可在此处设置路径
+      O3_CS3D: "/path/to/cs3d"  # 如果需要 CS3D 功能，可在此处设置路径
+      O3_MD_GRID_PATH: "/path/to/mdgrid"  # 如果需要 MD GRID，可在此处设置路径
+    volumes:
+      - ./data:/Open3DQSAR/data  # 将本地目录映射到容器中，便于保存数据
+    ports:
+      - "8080:8080"  # 可根据需要暴露其他服务端口
