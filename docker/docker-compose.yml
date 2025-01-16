@@ -5,7 +5,7 @@ services:
     build:
       context: .  # Dockerfile所在目录
       dockerfile: Dockerfile
-      image: hotwa/open3dqsar:latest 
+    image: hotwa/open3dqsar:latest  # 镜像名称和标签
     container_name: open3dqsar_container
     stdin_open: true  # 保持标准输入打开
     tty: true  # 启用伪终端
