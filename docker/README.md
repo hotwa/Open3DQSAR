@@ -24,3 +24,29 @@ configure: error: in `/Open3DQSAR/open3dqsar':
 configure: error: C compiler cannot create executables
 See `config.log' for more details
 ```
+
+## install manually
+
+```shell
+apt update && apt upgrade -y
+apt install -y build-essential gcc g++ gfortran cmake make wget tar                libatlas-base-dev liblapacke-dev libblas-dev git
+apt install -y build-essential gcc g++ gfortran cmake make wget tar                libatlas-base-dev liblapacke-dev libblas-dev libedit-dev zlib1g-dev                openbabel libeigen3-dev
+wget http://open3dqsar.org/downloads/editline-3.0.tar.bz2
+apt install -y libedit-dev
+apt install -y zlib1g-dev
+git
+git clone https://github.com/UnixJunkie/Open3DQSAR
+cd Open3DQSAR/
+ls
+cd open3dqsar/
+apt install -y build-essential cmake libatlas-base-dev
+./bootstrap
+apt update
+apt install -y build-essential automake autoconf libtool
+./bootstrap
+./configure --with-atlas
+make -j$(nproc)
+make install
+cd test
+./test.sh
+```
